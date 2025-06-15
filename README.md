@@ -28,16 +28,46 @@ cd WiringPi
 sudo ./build
 ```
 
-##Generate Bindings
-`swig2.0 -python wiringpi.i`
-or
-`swig3.0 -thread -python wiringpi.i`
+##Installation
 
-##Build & install with
-`sudo python setup.py install`
+### Option 1: Using the simplified build script (Recommended)
 
-Or Python 3:
-`sudo python3 setup.py install`
+```bash
+# For global installation
+./build.sh
+
+# OR for virtual environment installation
+# First activate your virtual environment
+source your_env/bin/activate
+# Then run the build script (no sudo needed)
+./build.sh
+```
+
+### Option 2: Manual installation
+
+#### Generate Bindings
+```bash
+swig2.0 -python wiringpi.i
+# or
+swig3.0 -thread -python wiringpi.i
+```
+
+#### Build & install with
+
+For global installation:
+```bash
+sudo python setup.py install
+# Or Python 3:
+sudo python3 setup.py install
+```
+
+For virtual environment installation:
+```bash
+# First activate your virtual environment
+source your_env/bin/activate
+# Then install (no sudo needed)
+python setup.py install
+```
 
 #Class-based Usage
 Description incoming!

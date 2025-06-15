@@ -5,3 +5,4 @@ __pycache__
 *.pyc
 wiringpi_wrap.c
 wiringpi.py
+myenv/
