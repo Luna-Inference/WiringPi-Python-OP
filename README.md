@@ -1,55 +1,59 @@
-#WiringPi for Python
+# WiringPi for Python
 
-WiringPi: An implementation of most of the Arduino Wiring
-	functions for the Raspberry Pi
+WiringPi: An implementation of most of the Arduino Wiring functions for the Raspberry Pi and Orange Pi boards
 
 WiringPi implements new functions for managing IO expanders.
 
-##Testing
-Build with gcc version 4.6.3 (Debian 4.6.3-14+rpi1)
-Built against Python 2.7.2, Python 3.2.3
+## Testing
+Built and tested with gcc on ARM64/AARCH64 Linux systems
+Supports Python 3.x
 
-##Get/setup repo
+## Get/setup repo
 ```bash
-git clone --recursive https://github.com/lanefu/WiringPi-Python-OP.git
+git clone --recursive https://github.com/ThomasVuNguyen/WiringPi-Python-OP.git
 cd WiringPi-Python-OP
 ```
 
-##Prerequisites
-To rebuild the bindings
-you **must** first have python-dev, python-setuptools and swig installed.
+## Prerequisites
+To rebuild the bindings you **must** first have python-dev, python-setuptools and swig installed.
+
+For Debian/Ubuntu-based systems:
 ```bash
-sudo apt-get install python-dev python-setuptools swig
+sudo apt-get install python3-dev python3-setuptools swig
 ```
 
-##Build WiringPi
-```bash
-cd WiringPi
-sudo ./build
-```
-
-##Installation
+## Installation
 
 ### Option 1: Using the simplified build script (Recommended)
 
+The build script automatically detects if you're in a virtual environment and installs accordingly:
+
 ```bash
-# For global installation
+# For global installation (requires sudo)
 ./build.sh
 
 # OR for virtual environment installation
 # First activate your virtual environment
-source your_env/bin/activate
+python -m venv myenv  # Create a virtual environment if you don't have one
+source myenv/bin/activate
+
 # Then run the build script (no sudo needed)
 ./build.sh
 ```
 
 ### Option 2: Manual installation
 
+#### First build the WiringPi C library (if not already done)
+```bash
+cd WiringPi
+./build
+cd ..
+```
+
 #### Generate Bindings
 ```bash
-swig2.0 -python wiringpi.i
-# or
-swig3.0 -thread -python wiringpi.i
+# Generate Python bindings with SWIG
+swig -python -threads wiringpi.i
 ```
 
 #### Build & install with
@@ -57,16 +61,20 @@ swig3.0 -thread -python wiringpi.i
 For global installation:
 ```bash
 sudo python setup.py install
-# Or Python 3:
-sudo python3 setup.py install
 ```
 
 For virtual environment installation:
 ```bash
 # First activate your virtual environment
-source your_env/bin/activate
+source myenv/bin/activate
 # Then install (no sudo needed)
 python setup.py install
+```
+
+#### Testing your installation
+```bash
+# Simple test to verify installation
+python -c "import wiringpi; print('WiringPi successfully installed!')"
 ```
 
 #Class-based Usage
