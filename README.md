@@ -19,6 +19,10 @@ To rebuild the bindings you **must** first have python-dev, python-setuptools an
 
 For Debian/Ubuntu-based systems:
 ```bash
+sudo apt update
+sudo apt install build-essential gcc g++  # generic compiler
+# or for explicit cross-compiler name
+sudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 sudo apt-get install python3-dev python3-setuptools swig
 ```
 
