@@ -10,7 +10,7 @@ Supports Python 3.x
 
 ## Get/setup repo
 ```bash
-git clone --recursive https://github.com/ThomasVuNguyen/WiringPi-Python-OP.git
+git clone --recursive https://github.com/Luna-Inference/WiringPi-Python-OP.git
 cd WiringPi-Python-OP
 ```
 
